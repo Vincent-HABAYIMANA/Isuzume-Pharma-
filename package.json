@@ -1,0 +1,26 @@
+{
+  "name": "isuzume-pharma",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Isuzume Pharma - an online pharmacy ordering web application for Kigali, Rwanda.",
+  "author": "HABAYIMANA Vincent - University of Rwanda, College of Science and Technology",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.8"
+  }
+}

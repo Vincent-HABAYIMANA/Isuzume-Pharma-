@@ -1,0 +1,203 @@
+/* ==========================================================================
+   Isuzume Pharma - design tokens and base styles
+   ========================================================================== */
+
+:root {
+  --ink: #13231b;
+  --ink-soft: #4d5f56;
+  --paper: #f5f8f5;
+  --surface: #ffffff;
+  --green: #1b6b4a;
+  --green-dark: #115037;
+  --mint: #e2efe7;
+  --amber: #a9620f;
+  --amber-soft: #fbf1e3;
+  --alert: #b3261e;
+  --line: #d8e2db;
+
+  --radius-s: 4px;
+  --radius-m: 10px;
+  --shadow-panel: 0 18px 40px rgba(19, 35, 27, 0.16);
+
+  --font-display: "Outfit", "Segoe UI", sans-serif;
+  --font-body: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+
+  --page-width: 1140px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(2.1rem, 5vw, 3.2rem); font-weight: 700; }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; }
+h3 { font-size: 1.15rem; font-weight: 600; }
+
+p { margin: 0 0 1rem; max-width: 68ch; }
+
+a {
+  color: var(--green-dark);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+ul, ol { margin: 0; padding: 0; list-style: none; }
+
+img { max-width: 100%; display: block; }
+
+:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 2px;
+  border-radius: var(--radius-s);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --------------------------------------------------------------- buttons */
+
+.button {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--green);
+  border-radius: var(--radius-s);
+  background: var(--green);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.button:hover:not(:disabled) { background: var(--green-dark); border-color: var(--green-dark); }
+
+.button:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.button--quiet {
+  background: transparent;
+  color: var(--green-dark);
+  border-color: var(--line);
+}
+
+.button--quiet:hover:not(:disabled) { background: var(--mint); border-color: var(--green); }
+
+.link-button {
+  border: 0;
+  background: none;
+  padding: 0;
+  color: var(--ink-soft);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.link-button:hover { color: var(--alert); }
+
+.icon-button {
+  border: 0;
+  background: none;
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--ink-soft);
+  cursor: pointer;
+  padding: 0 0.25rem;
+}
+
+/* ----------------------------------------------------------- form fields */
+
+label { font-weight: 600; font-size: 0.95rem; }
+
+input,
+select,
+textarea {
+  font: inherit;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  padding: 0.55rem 0.7rem;
+  width: 100%;
+}
+
+input:disabled { background: #eef1ef; }
+
+textarea { resize: vertical; }
+
+.field { display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 0.9rem; }
+
+.field--invalid input,
+.field--invalid select { border-color: var(--alert); background: #fdf3f2; }
+
+.field-hint { margin: 0; font-size: 0.85rem; color: var(--ink-soft); }
+
+.field-error { margin: 0; font-size: 0.85rem; color: var(--alert); font-weight: 600; }
+
+/* --------------------------------------------------- loading / empty states */
+
+.state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 3rem 1rem;
+  text-align: center;
+  color: var(--ink-soft);
+}
+
+.state p { margin: 0; }
+
+.state--error { color: var(--alert); }
+
+.spinner {
+  width: 26px;
+  height: 26px;
+  border: 3px solid var(--mint);
+  border-top-color: var(--green);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
